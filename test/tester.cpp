@@ -8,9 +8,9 @@ void Tester::execute() {
         TraitsList<Integer> integers;
         TraitsList<Float> floats;
 
-        for (int i = 0; i < size; ++i) {
+        for (int i = 0; i < static_cast<int>(size); ++i) {
             integers.insert(2 * i + 1);
-            floats.insert(20.f / (i + 1.f) + 2.f);
+            floats.insert(20.f / (static_cast<float>(i) + 1.f) + 2.f);
         }
 
         ASSERT(isSorted(integers), "The integers list has problems");
@@ -18,10 +18,10 @@ void Tester::execute() {
 
         for (int i = 0; i < 5; ++i) {
             integers.remove(2 * i + 1);
-            floats.remove(20.f / (i + 1.f) + 2.f);
+            floats.remove(20.f / (static_cast<float >(i) + 1.f) + 2.f);
         }
 
-        int newSize = size - 5;
+        int newSize = static_cast<int>(size) - 5;
         ASSERT(integers.size() == newSize, "The size function has problems");
         ASSERT(floats.size() == newSize, "The size function has problems");
         ASSERT(isSorted(integers), "The integers list has problems");

@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/type_traits_FJ98.dir/mock/mocker.cpp.o CMakeFiles/type_traits_FJ98.dir/test/tester.cpp.o CMakeFiles/type_traits_FJ98.dir/main.cpp.o  -o type_traits_FJ98 
