@@ -6,16 +6,14 @@
 template <typename T>
 class SelfList {
     public: 
-        enum Method {
-            Move, Count, Transpose
-        };
+        enum Method { Move, Count, Transpose };
 
     protected:
         Node<T>* head;
         Method method;
 
     private:
-    bool find(T data, Node<T> **&pointer) { // TO DO
+    bool find(T data, Node<T> **&pointer) {
 
         pointer = &head;
 
@@ -120,26 +118,28 @@ class SelfList {
                 case Move: {
 
                     Node<T> **curr;
-                    auto after = this->head;
-                    auto previous = after;
-                    Node<T> *beginNode = nullptr;
+                    auto current = this->head;
+                    auto previous = current;
 
-                    if (find(data, curr)) {
-//                        curr = &head;
+                    if ( find(data, curr) ) {
+
                         if (this->head->data == data) { return true; }
 
-                        after = after->next;
-                        while (after->data != data) {
-                            previous = after;
-                            after = after->next;
-//                            curr = &((*curr)->next);
+                        current = current->next;
+
+                        while (current->data != data) {
+
+                            previous = current;
+                            current = current->next;
+
                         }
 
-                        previous->next = after->next;  // (*curr)->next = after->next;
-                        after->next = this->head;
-                        this->head = after;
+                        previous->next = current->next;
+                        current->next = this->head;
+                        this->head = current;
 
                         return true;
+
                     }
 
                     break;
@@ -267,8 +267,7 @@ class SelfList {
             if (!this->head) {
                 cout << "List is empty!" << endl;
                 return;
-            }
-            else {
+            } else {
 
                 if (this->method == Count) {
                     for (auto p = this->head; p != nullptr; p = p->next) {
