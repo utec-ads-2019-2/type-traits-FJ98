@@ -6,6 +6,17 @@ using namespace std;
 
 int main(int argc, char const *argv[]) {
     Tester::execute();
+
+    SelfList<int> list(SelfList<int>::Transpose);
+
+    for (int i = 0; i < 10; i++) {
+        list.insert(i);
+    }
+
+    list.print(); cout << endl;
+    list.find(9);
+    list.print();
+
 //    SelfList<int> list(SelfList<int>::Move);
 
 // //--------------------------------------TRAITS-LIST-MY-OWN-TESTS-----------------------------------------------------

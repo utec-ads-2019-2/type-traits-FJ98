@@ -32,7 +32,7 @@ class SelfList {
         explicit SelfList(Method method) : head(nullptr) { this->method = method; };
 
         bool insert(T data) { // INSERT PUSH BACK WITHOUT A TAIL
-
+            
             auto newNode = new Node<T>{data};
 
             if ( !this->head ) {  // When there is no element
@@ -114,7 +114,7 @@ class SelfList {
 
 
             switch (this->method) {
-
+                // Podrías haber separado esta parte en métodos privados
                 case Move: {
 
                     Node<T> **curr;
